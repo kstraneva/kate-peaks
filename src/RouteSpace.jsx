@@ -36,7 +36,7 @@ export default function RouteSpace({ streams, mode }) {
   const parent = useRef(null);
   const deckRef = useRef(null);
   const viewRef = useRef(null);
-  const [exag, setExag] = useState(2);
+  const exag = 1;
   const [terrain, setTerrain] = useState(true);
   const [basemap, setBasemap] = useState('satellite');
   const [sel, setSel] = useState(null);
@@ -156,9 +156,6 @@ export default function RouteSpace({ streams, mode }) {
         {sel != null ? (
           <div>{(distance[sel] / 1000).toFixed(2)} km · {Math.round(altitude[sel])} m · grade {gradeAt(sel, altitude, distance).toFixed(1)}%</div>
         ) : <div>Click the route or the profile to inspect a point</div>}
-        <label>Vertical exaggeration {exag.toFixed(1)}×
-          <input type="range" min="1" max="6" step="0.5" value={exag} onChange={(e) => setExag(+e.target.value)} style={{ width: '100%' }} />
-        </label>
         <div className="controls">
           {Object.entries(BASEMAPS).map(([k, b]) => (
             <button key={k} className={basemap === k ? 'active' : ''} onClick={() => setBasemap(k)}>{b.label}</button>

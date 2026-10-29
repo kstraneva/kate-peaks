@@ -4,7 +4,7 @@ Four routes rendered as rotatable 3D terrain maps: Camelback Mountain (trail run
 
 - Drag to pan, right-drag (or Ctrl-drag) to rotate and tilt, scroll to zoom.
 - Click the route or the elevation profile to read distance, elevation and grade at that point.
-- Switch basemaps (satellite, topo, streets), toggle terrain, and change the vertical exaggeration.
+- Switch basemaps (satellite, topo, streets) and toggle terrain.
 - Color the route by elevation or by grade.
 
 Built with React, Vite and [deck.gl](https://deck.gl). Terrain is Mapzen/AWS terrain tiles; imagery from Esri, OpenTopoMap and OpenStreetMap (credited in the viewer).
