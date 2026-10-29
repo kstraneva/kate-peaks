@@ -6,7 +6,9 @@ const km = (m) => `${(m / 1000).toFixed(1)} km · ${(m / 1609.344).toFixed(1)} m
 const metres = (m) => `${Math.round(m).toLocaleString()} m · ${Math.round(m * 3.28084).toLocaleString()} ft`;
 
 export default function App() {
-  const [slug, setSlug] = useState(PEAKS[0].slug);
+  const fromHash = () => PEAKS.find((p) => p.slug === window.location.hash.slice(1))?.slug || PEAKS[0].slug;
+  const [slug, setSlugState] = useState(fromHash);
+  const setSlug = (s) => { window.location.hash = s; setSlugState(s); };
   const [mode, setMode] = useState('elevation');
   const peak = PEAKS.find((p) => p.slug === slug);
   const { stats } = peak;
